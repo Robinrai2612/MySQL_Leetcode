@@ -1,0 +1,9 @@
+with tb1 as
+(
+    select stock_name ,
+    case when operation ="buy" then price*-1
+    else price
+    end mod_price
+    from Stocks 
+)
+select stock_name , sum(mod_price) as capital_gain_loss  from tb1 group by stock_name
