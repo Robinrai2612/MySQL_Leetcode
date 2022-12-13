@@ -1,1 +1,31 @@
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT BEGIN
+        SET @count := N;
+  RETURN (
+
+        SELECT tt.Salary
+        FROM 
+        
+        (
+        
+                SELECT (@count := @count -1) AS c,t.Salary
+                
+                FROM 
+                (
+                	SELECT
+
+                		Salary
+                	FROM
+                		Employee
+					GROUP BY Salary
+                	ORDER BY
+                		Salary DESC
+                ) AS t
+                WHERE @count >=1
+        
+        ) AS tt
+        
+        WHERE tt.c=0
+      
+  );
+END
 
