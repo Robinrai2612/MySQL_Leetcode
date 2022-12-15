@@ -1,1 +1,6 @@
-
+SELECT s1.id, s2.student FROM seat s1 JOIN seat s2
+ON CASE  WHEN mod(s1.id, 2)=1 AND s1.id <> (select max(id) from seat) THEN s1.id + 1 = s2.id
+         WHEN mod(s1.id, 2)=0 THEN s1.id = s2.id +1
+         ELSE s1.id = s2.id  
+   END
+ORDER BY s1.id
