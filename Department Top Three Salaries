@@ -1,4 +1,3 @@
-# Write your MySQL query statement below
 select d.name Department
 ,e2.name Employee
 ,e2.salary Salary
