@@ -1,1 +1,4 @@
-
+# Write your MySQL query statement below
+select d.Name as Department, e.Name as Employee, e.Salary from Employee e, Department d 
+  where 0 = (select count(Salary) from Employee e1 where e1.Salary > e.Salary and e1.DepartmentId = e.DepartmentId)
+and d.Id = e.DepartmentId order by d.Name ASC;
