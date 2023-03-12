@@ -7,4 +7,4 @@ with tb1 as
     from Stocks 
 )
 select stock_name , sum(mod_price) as capital_gain_loss  from tb1 group by stock_name
-)
+
